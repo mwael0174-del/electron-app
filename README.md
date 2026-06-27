@@ -1,161 +1,126 @@
-<h1 align="center"><img src="https://raw.githubusercontent.com/daltonmenezes/electron-app/refs/heads/main/docs/images/bullet.svg" width="19" /> Electron App</h1>
+# AdFlow Desktop
 
-<p align="center">💅 An Electron app boilerplate with React v19, TypeScript v5, Tailwind v4, shadcn/ui, Electron Vite, Biome, <strong>GitHub Action releases</strong> and more.
-  <br/><br/>
-   <!-- GitHub -->
-  <a href="https://github.com/sponsors/daltonmenezes">
-    <img alt="github url" src="https://img.shields.io/badge/support%20on-github-1C1E26?style=for-the-badge&labelColor=1C1E26&color=F28BA9"/>
-  </a>
-  <!-- Patreon -->
-  <a href="https://www.patreon.com/daltonmenezes">
-    <img alt="patreon url" src="https://img.shields.io/badge/support%20on-patreon-1C1E26?style=for-the-badge&labelColor=1C1E26&color=B181F1"/>
-  </a>
-  <!-- Version -->
-  <a href="https://github.com/daltonmenezes/electron-app/releases">
-     <img alt="releases url" src="https://img.shields.io/github/v/release/daltonmenezes/electron-app?style=for-the-badge&labelColor=1C1E26&color=61ffca"/>
-  </a>  
-  <!-- License -->
-  <a href="https://github.com/daltonmenezes/electron-app/blob/main/LICENSE">
-    <img alt="license url" src="https://img.shields.io/badge/license%20-MIT-1C1E26?style=for-the-badge&labelColor=1C1E26&color=F28BA9"/>
-  </a>
-</p>
+> Manage all your ad campaigns from one desktop app. Meta, TikTok, and Google Ads in a single dashboard.
 
-<p align="center">
-  <a href="#electron-app">
-    <img alt="preview" src="./docs/images/preview.png" >
-  </a>
-</p>
+![AdFlow Desktop](https://img.shields.io/badge/status-beta-orange) ![Platform](https://img.shields.io/badge/platform-Windows-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-# <img src="https://raw.githubusercontent.com/daltonmenezes/electron-app/refs/heads/main/docs/images/bullet.svg" width="19" /> Features
-- **Stands out**
-  - 🔥 Fast and Ready-to-go with a well-thought-out structure
-  - 🚀 Auto reload for main and **Fast Refresh** for renderer process
-  - 🎉 Window/Screen routing included
-  - 😎 Preload (context bridge) already configured
-  - 🔮 GitHub Action releases with `Windows`, `Mac` and `Linux` binaries
-  - 🔒 Source Code Protection support
-  - 🍪 Absolute paths support
-- **Technologies**:
-  - 🔋 Electron
-  - 🔥 ReactJS v19
-  - 🌎 React Router DOM v7 and Electron Router DOM v2
-  - 🧐 React Developer Tools
-  - 🔍 Code inspector (holding <kbd title="Alt">`Alt`</kbd> or <kbd title="Alt">`Option`</kbd> key on DOM element and clicking on it)
-  - 💙 TypeScript v5
-  - 📦 Electron Vite
-  - ✨ TailwindCSS v4
-  - 🎨 shadcn/ui
-  - 🍦 lucide-icons
-  - 💫 Biome / EditorConfig
-  - 📦 Electron Builder
-  - 🔮 action-electron-builder
+## What is AdFlow?
 
-<br/>
+AdFlow Desktop is a native Windows application for managing advertising campaigns across multiple platforms. Instead of juggling 15 browser tabs, you get one focused app with real-time budget tracking, campaign management, and performance analytics.
 
-> :warning: If **Windows 7** and **8** support is important for your project, you should know that Electron in a version greater than 22x no longer supports it. You can read more about it [here](https://www.electronjs.org/docs/latest/breaking-changes#removed-windows-7--8--81-support). Therefore, you must downgrade Electron to 22x version if it's important for you!
+**Key Features:**
 
-# <img src="https://raw.githubusercontent.com/daltonmenezes/electron-app/refs/heads/main/docs/images/bullet.svg" width="19" /> Requirements
-- [Node.js 22](https://nodejs.org/en/download/)
-- [pnpm 10](https://pnpm.io/installation)
+- Unified dashboard for Meta, TikTok, and Google Ads
+- Real-time budget tracking with overspend alerts
+- Secure OAuth (tokens never leave your machine)
+- Native desktop performance with offline data access
+- Multi-account support for agency workflows
+- Silent auto-updates via GitHub Releases
 
-# <img src="https://raw.githubusercontent.com/daltonmenezes/electron-app/refs/heads/main/docs/images/bullet.svg" width="19" /> Installation
-```bash
-npx degit daltonmenezes/electron-app/template project_name
-```
-```bash
-cd project_name
-pnpm install
-pnpm dev
-```
+## Tech Stack
 
-Now, look at the **package.json** file in the root directory, you should update some of that settings with your project branding.
+| Layer | Technology |
+|-------|------------|
+| Framework | Electron 39+ |
+| Frontend | React 19, TypeScript 5, Tailwind 4 |
+| UI Components | shadcn/ui |
+| Build | electron-vite (Vite 7) |
+| Linter | Biome |
+| Releases | electron-builder + GitHub Actions |
 
-# <img src="https://raw.githubusercontent.com/daltonmenezes/electron-app/refs/heads/main/docs/images/bullet.svg" width="14" /> Adding new dependencies
-For security reasons, **pnpm** has the [onlyBuiltDependenciesFile](https://pnpm.io/package_json#pnpmonlybuiltdependenciesfile) property where only 
-dependencies listed in the [trusted-dependencies-scripts.json](./template/trusted-dependencies-scripts.json) file can perform the postscripts execution. So, if you want to add a new dependency that needs to run a postscript, you should add it to the [trusted-dependencies-scripts.json](./template/trusted-dependencies-scripts.json) file list.
+## Getting Started
 
-# <img src="https://raw.githubusercontent.com/daltonmenezes/electron-app/refs/heads/main/docs/images/bullet.svg" width="14" /> Distribution
+### Prerequisites
 
-> [!NOTE]
-> this section refers to local distribution, to release your app from GitHub Actions, see [Releasing](./docs/RELEASING.md) section.
+- Node.js >= 20
+- npm >= 9
+- Windows 10/11
 
-### For all platforms
-
-> **Note**: Check [Electron Builder docs](https://www.electron.build/cli) for more knowledge
-
-```
-pnpm build
-```
-
-### For a specific one
+### Install & Run
 
 ```bash
-pnpm build --mac
-# OR
-pnpm build --win
-# OR
-pnpm build --linux
+# Clone the repo
+git clone https://github.com/mwael0174-del/electron-app.git
+cd electron-app
+
+# Install dependencies
+npm install
+
+# Run in development mode (with HMR)
+npm run dev
 ```
 
-The builded apps will be available in the `dist` folder.
+### Build for Production
 
-# <img src="https://raw.githubusercontent.com/daltonmenezes/electron-app/refs/heads/main/docs/images/bullet.svg" width="19" /> Documents
-<table>
-  <tr>
-    <td valign="center">
-      <p align="center">
-        <a href="https://electron-router-dom.daltonmenezes.com/docs">Routing</a>
-      </p>
-    </td>
-    <td valign="center">
-      <p align="center">
-        <a href="./docs/STRUCTURE.md">Structure Overview</a>
-      </p>
-    </td>
-    <td valign="center">
-      <p align="center">
-        <a href="./docs/SOURCE_CODE_PROTECTION.md">Source Code Protection</a>
-      </p>
-    </td>
-    </tr>
-    <tr>
-    <td valign="center">
-      <p align="center">
-        <a href="./docs/RELEASING.md">Releasing</a>
-      </p>
-    </td>
-    <td valign="center">
-      <p align="center">
-        <a href="./docs/UNSIGNED_APPS.md">Running released unsigend apps</a>
-      </p>
-    </td>
-    <td valign="center">
-      <p align="center">
-        <a href="./docs/FAQ.md">FAQ - Frequently Asked Questions</a>
-      </p>
-    </td>
-  </tr>
+```bash
+# Create Windows installer (.exe)
+npm run build
+```
 
-  <tr>
-    <td valign="center" >
-      <p align="center">
-        <a href="./docs/THEMING.md">Theming</a>
-      </p>
-    </td>
-  </tr>
-</table>
+The output will be in the `release/` directory.
 
-# Contributing
-> **Note**: contributions are always welcome, but always **ask first**, — please — before work on a PR.
+## Project Structure
 
-That said, there's a bunch of ways you can contribute to this project, like by:
+```
+src/
+├── main/           # Electron main process (Node.js)
+│   ├── index.ts      # App entry, window management, IPC handlers
+│   ├── meta-oauth.ts # Facebook/Meta OAuth + PKCE
+│   ├── tiktok-oauth.ts # TikTok Business OAuth
+│   ├── pkce.ts       # PKCE code verifier/challenge
+│   └── loopback.ts   # Local HTTP server for OAuth callbacks
+├── preload/        # Security bridge (contextBridge)
+│   └── index.ts      # Exposes safe APIs to renderer
+└── renderer/       # React frontend (sandboxed)
+    ├── screens/      # App screens/pages
+    ├── components/   # Shared UI components
+    └── main.tsx      # React entry point
+```
 
-- :beetle: Reporting a bug
-- :page_facing_up: Improving this documentation
-- :rotating_light: Sharing this project and recommending it to your friends
-- :dollar: Supporting this project on GitHub Sponsors or Patreon
-- :star2: Giving a star on this repository
+## Architecture
 
-# License
+AdFlow uses Electron's three-layer security model:
 
-[MIT © Dalton Menezes](https://github.com/daltonmenezes/electron-app/blob/main/LICENSE)
+```
+┌─────────────────┐     ┌───────────────────┐     ┌─────────────────┐
+│   Renderer      │     │   Preload Bridge    │     │   Main Process   │
+│   (React UI)    │────│  (contextBridge)    │────│   (Node.js)      │
+│                 │ IPC │  Whitelist only     │ IPC │   OAuth, APIs    │
+└─────────────────┘     └───────────────────┘     └─────────────────┘
+```
+
+- **Renderer** has zero Node.js access
+- **Preload** exposes only whitelisted, validated APIs
+- **Main** handles all system access, OAuth, and external API calls
+
+## Security
+
+- `contextIsolation: true` (default)
+- `nodeIntegration: false` (default)
+- `sandbox: true`
+- OAuth tokens encrypted in local storage
+- PKCE flow for all OAuth providers
+- No raw `ipcRenderer` exposure
+- Electron 39.8+ (patched CVE-2026-34780)
+
+## Roadmap
+
+- [x] OAuth integration (Meta + TikTok)
+- [ ] Campaign data logic + budget calculations
+- [ ] Add Campaign modal with validation
+- [ ] UI/Responsive polish
+- [ ] Google Ads integration
+- [ ] macOS build
+- [ ] Auto-update via GitHub Releases
+
+## Contributing
+
+This is currently a solo project by [@mwael0174-del](https://github.com/mwael0174-del). If you're interested in contributing, open an issue first.
+
+## License
+
+MIT
+
+---
+
+Built by [Zoom Design](https://facebook.com/ZoomDesignEgypt) • [WhatsApp](https://wa.me/2001205592861)
