@@ -6,9 +6,14 @@ import { loadReactDevtools } from 'lib/electron-app/utils'
 import { ENVIRONMENT } from 'shared/constants'
 import { MainWindow } from './windows/main'
 import { waitFor } from 'shared/utils'
+import { registerCampaignHandlers } from './ipc-campaigns'
 
 makeAppWithSingleInstanceLock(async () => {
   await app.whenReady()
+
+  // Register IPC handlers before creating window
+  registerCampaignHandlers()
+
   const window = await makeAppSetup(MainWindow)
 
   if (ENVIRONMENT.IS_DEV) {
