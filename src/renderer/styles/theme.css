@@ -1,0 +1,70 @@
+/* Theme variables for Tailwind + AdFlow */
+/* Applied via class on <html> element */
+
+:root {
+  /* Shared */
+  --radius: 0.625rem;
+  --font-sans: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+}
+
+/* ===== DARK THEME (default) ===== */
+.dark {
+  --background: oklch(10% 0.008 55);
+  --foreground: oklch(90% 0.005 55);
+
+  --card: oklch(14% 0.008 55);
+  --card-foreground: oklch(90% 0.005 55);
+
+  --secondary: oklch(17% 0.01 55);
+  --secondary-foreground: oklch(90% 0.005 55);
+
+  --muted-foreground: oklch(58% 0.008 55);
+
+  --primary: oklch(68% 0.2 45);
+  --primary-foreground: oklch(12% 0.02 55);
+
+  --destructive: oklch(62% 0.2 25);
+  --destructive-foreground: oklch(95% 0.005 55);
+
+  --border: oklch(22% 0.012 55);
+  --ring: oklch(68% 0.2 45);
+}
+
+/* ===== LIGHT THEME ===== */
+.light {
+  --background: oklch(97% 0.005 55);
+  --foreground: oklch(15% 0.01 55);
+
+  --card: oklch(100% 0.003 55);
+  --card-foreground: oklch(15% 0.01 55);
+
+  --secondary: oklch(94% 0.006 55);
+  --secondary-foreground: oklch(20% 0.01 55);
+
+  --muted-foreground: oklch(45% 0.01 55);
+
+  --primary: oklch(55% 0.22 45);
+  --primary-foreground: oklch(98% 0.005 55);
+
+  --destructive: oklch(52% 0.2 25);
+  --destructive-foreground: oklch(98% 0.005 55);
+
+  --border: oklch(88% 0.008 55);
+  --ring: oklch(55% 0.22 45);
+}
+
+/* Utility classes that reference theme vars */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Smooth transition between themes */
+:root {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dark *,
+.light * {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+}
